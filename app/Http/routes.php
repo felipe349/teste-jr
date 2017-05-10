@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PrincipalController@home');
 
-Route::get('/hello2', 'Welcome@Welcome');
+Route::group(['middleware'  =>  ['cors', 'api'], 'prefix'    =>  'api'], function(){
+    
+    Route::post('/cadastrarVenda', 'Api\VendedorController@armazenar');
+    
+    Route::post('/retornarValor', 'Api\VendedorController@getComissao');
+    
+});

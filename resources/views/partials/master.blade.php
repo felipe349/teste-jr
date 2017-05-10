@@ -33,11 +33,6 @@
     </head>
     
     <body class="body">
-        @if(\Auth::guard('admin')->check())
-            @include('admin.includes.header')
-        @else
-            @include('parceiro.includes.header-logout')
-        @endif
         
         @yield('content')
         
